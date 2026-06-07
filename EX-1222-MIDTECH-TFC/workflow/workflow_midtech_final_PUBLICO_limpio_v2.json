@@ -1,0 +1,1456 @@
+{
+  "name": "MIDTECH_TFC_workflow_publico_sin_credenciales",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7af76587-1485-4744-9691-48911ec77860",
+              "name": "tipo",
+              "value": "iso",
+              "type": "string"
+            },
+            {
+              "id": "b7cd9228-1c0a-4646-a0a4-dab441aa5914",
+              "name": "prompt",
+              "value": "ISO27001_RESUMEN_MIDTECH",
+              "type": "string"
+            },
+            {
+              "id": "f4f95075-8b06-4fc7-96e5-d135621aef19",
+              "name": "file_id",
+              "value": "CONFIGURAR_ID_DOCUMENTO_GOOGLE_DRIVE",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1296,
+        -672
+      ],
+      "id": "ac96f559-7383-4251-abdc-42f8f1413e7c",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "jsonMode": "expressionData",
+        "jsonData": "={{ $json.text }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        -576,
+        -656
+      ],
+      "id": "8ba4c45a-3c0f-40ae-9016-d1b8556d1852",
+      "name": "Default Data Loader"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1040,
+        -784
+      ],
+      "id": "fd8b5248-93a8-4f14-901d-879e30326489",
+      "name": "Embeddings OpenAI1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "05dc6610-ef1c-459b-b28f-3a8f8ea592d0",
+              "name": "pregunta",
+              "value": "¿Qué dice ISO 27001 sobre SGSI, alcance, gestión de riesgos y mejora continua?",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1248,
+        -928
+      ],
+      "id": "900e984e-bc06-4381-b332-b1d335946f4a",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -944,
+        80
+      ],
+      "id": "7cc8536a-f60f-4a8f-8a2c-ffbdf88d1179",
+      "name": "OpenAI Chat Model"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        352,
+        -672
+      ],
+      "id": "17b3b120-d5f5-440b-b6ba-2ac7f399792c",
+      "name": "Embeddings OpenAI2"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        688,
+        -672
+      ],
+      "id": "59f2512f-abf9-479e-bfac-accba89cda59",
+      "name": "OpenAI Chat Model1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        80,
+        -368
+      ],
+      "id": "506d4e08-377b-415b-8ef4-8e3bef1a0c22",
+      "name": "Embeddings OpenAI3"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -16,
+        0
+      ],
+      "id": "fb7f6cf0-a837-49f9-9630-49a52ffef8ad",
+      "name": "Embeddings OpenAI4"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -32,
+        336
+      ],
+      "id": "e8974eed-86a8-4631-bf2d-e4357022c55b",
+      "name": "Embeddings OpenAI5"
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseMode": "responseNodes"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -1280,
+        -112
+      ],
+      "id": "6c0c9712-3018-4b52-b4e8-8a34ca06d6da",
+      "name": "01_Entrada_Chat_Usuario"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7af76587-1485-4744-9691-48911ec77860",
+              "name": "pregunta_usuario",
+              "value": "={{ $json.chatInput }}",
+              "type": "string"
+            },
+            {
+              "id": "2cc47a5f-a0d6-4636-9717-e34565ac9a66",
+              "name": "prompt_clasificador",
+              "value": "=Eres un clasificador de intención para el asistente de ciberseguridad y compliance de MIDTECH S.A.  Clasifica la pregunta del usuario en UNA sola de estas categorías:  politica gap auditoria mejoras  Criterios: - politica: análisis de la política de seguridad de MIDTECH, apartados, cobertura, carencias internas o contenido documental. - gap: comparación de la política con ISO 27001, ENS, RGPD/LOPDGDD o detección de brechas/incumplimientos. - auditoria: pregunta concreta de cumplimiento, evidencia documental, existencia de controles o dudas de auditoría. - mejoras: recomendaciones, acciones correctivas, medidas, prioridades o propuestas de mejora.  Responde únicamente con una palabra exacta: politica gap auditoria mejoras  Pregunta del usuario: {{ $json.chatInput }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1088,
+        -112
+      ],
+      "id": "27ce8155-0c0e-4659-8a7c-54517467dbe6",
+      "name": "02_Preparar_Pregunta_Usuario"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.prompt_clasificador }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Eres un clasificador de intención para el asistente de ciberseguridad y compliance de MIDTECH S.A.\n\nTu única tarea es leer la pregunta del usuario y devolver SOLO UNA de estas etiquetas:\n\npolitica\ngap\nauditoria\nmejoras\n\nNo expliques nada.\nNo añadas frases.\nNo añadas puntuación.\nNo devuelvas JSON.\nDevuelve únicamente la etiqueta exacta.\n\nCRITERIOS DE CLASIFICACIÓN:\n\n1. Devuelve auditoria cuando el usuario haga una pregunta concreta para comprobar si algo existe, está documentado, se menciona, se evidencia o se puede verificar documentalmente.\n\nPalabras clave de auditoria:\n- tenemos\n- documenta\n- documentado\n- existe\n- evidencia\n- se menciona\n- está implantado\n- está definido\n- se puede comprobar\n- cumple\n- cumplimiento\n- auditoría\n- control documentado\n- procedimiento documentado\n\nEjemplos:\n- ¿Tenemos una política de gestión de contraseñas y autenticación multifactor documentada?\n- ¿La política documenta MFA?\n- ¿Existe evidencia sobre gestión de incidentes?\n- ¿Tenemos control de accesos documentado?\n- ¿La política de MIDTECH documenta MFA y control de accesos?\n- ¿Cómo se gestionan los incidentes según la política?\n\n2. Devuelve mejoras cuando el usuario pida recomendaciones, propuestas de mejora, acciones correctivas, plan de mejora, medidas priorizadas o cómo reforzar un control.\n\nPalabras clave de mejoras:\n- propón\n- propone\n- mejora\n- mejorar\n- recomendaciones\n- recomienda\n- acción correctiva\n- acciones correctivas\n- prioriza\n- plan de mejora\n- reforzar\n- solucionar\n- medidas\n\nEjemplos:\n- Propón mejoras para MFA.\n- Dame recomendaciones priorizadas.\n- Qué acciones correctivas aplicarías.\n- Cómo podemos mejorar la política.\n- Propón medidas para reforzar continuidad.\n\n3. Devuelve gap cuando el usuario pida comparar la política con una norma, hacer un gap analysis, detectar brechas, incumplimientos, carencias normativas o contrastar contra ISO 27001, ENS, RGPD/GDPR o LOPDGDD.\n\nPalabras clave de gap:\n- gap\n- brecha\n- carencia\n- incumplimiento\n- comparar\n- frente a\n- respecto a\n- ISO\n- ENS\n- RGPD\n- GDPR\n- LOPDGDD\n\nEjemplos:\n- Haz un gap analysis frente a ISO 27001.\n- Compara la política con ENS.\n- Qué incumplimientos hay respecto a RGPD.\n- Detecta gaps normativos sobre MFA.\n- Compara MFA y control de accesos frente a ISO 27001 y ENS.\n\n4. Devuelve politica solo cuando el usuario pida analizar la política completa, revisar qué áreas cubre, evaluar la política en general, identificar apartados cubiertos, cobertura parcial o áreas no localizadas.\n\nEjemplos:\n- Analiza la política de seguridad de MIDTECH.\n- Revisa la política e indica áreas cubiertas.\n- Qué cubre la política de seguridad.\n- Evalúa la política de seguridad.\n\nREGLAS DE PRIORIDAD:\n\n1. Si la pregunta contiene \"tenemos\", \"documenta\", \"documentado\", \"existe\", \"evidencia\", \"se menciona\", \"cumple\" o \"auditoría\", devuelve auditoria.\n2. Si la pregunta contiene \"propón\", \"mejora\", \"recomendación\", \"acción correctiva\", \"prioriza\", \"reforzar\" o \"solucionar\", devuelve mejoras.\n3. Si la pregunta contiene \"gap\", \"brecha\", \"incumplimiento\", \"comparar\", \"frente a\", \"respecto a\", \"ISO\", \"ENS\", \"RGPD\", \"GDPR\" o \"LOPDGDD\", devuelve gap.\n4. Solo devuelve politica cuando la pregunta sea un análisis general de la política, no una comprobación concreta.\n\nPregunta del usuario:\n{{ $('01_Entrada_Chat_Usuario').first().json.chatInput }}\n\nEtiqueta:"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -896,
+        -96
+      ],
+      "id": "43d815a6-8d81-4094-9af2-e81eb2e6e06f",
+      "name": "03_Clasificador_Intencion"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "812c41e6-e217-4a20-82ab-6c900e1f48e6",
+              "name": "categoria",
+              "value": "={{ ($json.text || '').toString().trim().toLowerCase() }}",
+              "type": "string"
+            },
+            {
+              "id": "f76800ea-2e75-4476-9058-84856821bcd4",
+              "name": "es_politica",
+              "value": "={{ ($json.text || '').toString().trim().toLowerCase() === 'politica' }}",
+              "type": "boolean"
+            },
+            {
+              "id": "414d5755-503b-40db-ac40-7c43a1217e80",
+              "name": "es_gap",
+              "value": "={{ ($json.text || '').toString().trim().toLowerCase() === 'gap' }}",
+              "type": "boolean"
+            },
+            {
+              "id": "9ac562c0-d498-42cf-8cb2-09131b3bea2e",
+              "name": "es_auditoria",
+              "value": "={{ ($json.text || '').toString().trim().toLowerCase() === 'auditoria' }}",
+              "type": "boolean"
+            },
+            {
+              "id": "0d7b6d3d-7d76-4c8a-adf1-c940e538386a",
+              "name": "es_mejoras",
+              "value": "={{ ($json.text || '').toString().trim().toLowerCase() === 'mejoras' }}",
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -576,
+        -96
+      ],
+      "id": "6a780a84-a73b-484e-8fe2-784c8d0402b9",
+      "name": "04_Normalizar_Categoria_y_Booleanos"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "c9232e75-3762-41fc-9147-548e35dded6e",
+              "leftValue": "={{ $json.es_politica }}",
+              "rightValue": "politica",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -128,
+        -816
+      ],
+      "id": "33458073-27c8-4bd6-9b9e-e2f1038e97ef",
+      "name": "05_IF_Politica"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "c9232e75-3762-41fc-9147-548e35dded6e",
+              "leftValue": "={{ $json.es_gap }}",
+              "rightValue": "gap",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -144,
+        -512
+      ],
+      "id": "41cb0d73-8757-4753-867c-de292e1e089c",
+      "name": "06_IF_GAP"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "c9232e75-3762-41fc-9147-548e35dded6e",
+              "leftValue": "={{ $json.es_auditoria }}",
+              "rightValue": "auditoria",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -208,
+        -160
+      ],
+      "id": "d054e751-c704-4254-8325-5e96f6b7f20a",
+      "name": "07_IF_Auditoria"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "8927a130-e6ab-4723-8460-876567f0235f",
+              "leftValue": "={{ $json.es_mejoras }}",
+              "rightValue": "mejoras",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -224,
+        224
+      ],
+      "id": "1370e9b6-8543-4cb6-bb36-0245bed6920a",
+      "name": "08_IF_Mejoras"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4341fd68-6939-47a7-8f9a-726189cd9136",
+              "name": "prompt_final",
+              "value": "=Eres el asistente de ciberseguridad y compliance de MIDTECH S.A.  Responde a la pregunta del usuario usando únicamente el fragmento documental recuperado por la base indexada.  Pregunta del usuario: {{ $('02_Preparar_Pregunta_Usuario').item.json.pregunta_usuario }}  Categoría detectada: {{ $('03_Clasificador_Intencion').item.json.text }}  Instrucción de la capacidad: {{ $('09_Preparar_Consulta_RAG_Politica').item.json.instruccion_capacidad }}  Fragmento documental recuperado: {{ $json.document.pageContent }}  Instrucciones: - Responde en español claro y profesional. - No inventes información. - Si el fragmento no contiene evidencia suficiente, responde: \"No localizado en la documentación recuperada.\" - Indica qué documento o norma parece estar relacionado si aparece en el fragmento. - Mantén una conclusión prudente. - No afirmes cumplimiento definitivo. - Usa únicamente la evidencia recuperada.  Formato: 1. Respuesta breve. 2. Evidencia documental recuperada. 3. Análisis. 4. Riesgo o carencia, si aplica. 5. Recomendación. 6. Prioridad: Alta / Media / Baja / No aplica.",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        560,
+        -832
+      ],
+      "id": "202178c9-b34d-48c4-a8a5-edab68722d9b",
+      "name": "10_Preparar_Prompt_Politica"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.prompt_final }}",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        704,
+        -832
+      ],
+      "id": "753fbd71-b8c2-45bd-af40-bc3361c4e404",
+      "name": "11_IA_Analisis_Politica"
+    },
+    {
+      "parameters": {
+        "mode": "load",
+        "memoryKey": {
+          "__rl": true,
+          "mode": "list",
+          "value": "vector_store_key"
+        },
+        "prompt": "={{ $('01_Entrada_Chat_Usuario').item.json.chatInput }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.3,
+      "position": [
+        304,
+        -832
+      ],
+      "id": "ffe645b6-9ca1-4a21-baf1-1005fbea0957",
+      "name": "09_RAG_Politica_MIDTECH"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "147f0e13-a9fb-4048-bc29-cf6d9d4d5e2b",
+              "name": "categoria",
+              "value": "={{ $('03_Clasificador_Intencion').item.json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "861683af-f2c1-4e40-9c00-5c13ac7cd091",
+              "name": "instruccion_capacidad",
+              "value": "Eres el asistente de análisis de política de seguridad de MIDTECH S.A.  Tu tarea es analizar la pregunta del usuario usando los fragmentos documentales recuperados de la base indexada.  Debes centrarte en: - contenido de la política de seguridad; - controles mencionados; - cobertura documental; - posibles carencias internas; - evidencia recuperada.  No inventes información. Si los fragmentos no contienen evidencia suficiente, indica: \"No localizado en la documentación recuperada\".",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        160,
+        -832
+      ],
+      "id": "7370d487-f45e-4a90-804b-67f1f1329b8b",
+      "name": "09_Preparar_Consulta_RAG_Politica"
+    },
+    {
+      "parameters": {
+        "mode": "load",
+        "memoryKey": {
+          "__rl": true,
+          "mode": "list",
+          "value": "vector_store_key"
+        },
+        "prompt": "={{ $('01_Entrada_Chat_Usuario').first().json.chatInput }}",
+        "topK": "={{ 5 }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.3,
+      "position": [
+        96,
+        -528
+      ],
+      "id": "be757005-2ea9-4e5b-aea8-14714758b735",
+      "name": "12_RAG_GAP_ISO_ENS_Politica"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3a460ce6-b8e2-4694-a75f-e4fd47a1aaac",
+              "name": "pregunta_usuario",
+              "value": "={{ $('01_Entrada_Chat_Usuario').first().json.chatInput }}",
+              "type": "string"
+            },
+            {
+              "id": "e112d89f-1728-44ed-915e-edc9adf27b10",
+              "name": "contexto",
+              "value": "={{ $input.all().map(item => item.json.document?.pageContent || item.json.pageContent || item.json.text).join('\\n\\n---\\n\\n') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        448,
+        -528
+      ],
+      "id": "1b0d112b-26ed-421f-bf43-45e6b4cc5982",
+      "name": "13_Preparar_Contexto_GAP"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=Eres un analista de gap normativo para MIDTECH S.A.\n\nTu función es comparar la política de seguridad de MIDTECH o la situación planteada por el usuario frente a ISO 27001, GDPR/RGPD, LOPDGDD y ENS, usando únicamente el contexto documental recibido.\n\nObjetivo:\nDetectar carencias, incumplimientos potenciales o brechas documentales.\n\nReglas:\n- No afirmes incumplimiento legal definitivo.\n- Habla de \"brecha\", \"carencia\", \"riesgo\" o \"posible incumplimiento documental\".\n- No inventes artículos ni controles.\n- Si falta información, indica: \"No localizado en la documentación disponible.\"\n- Cada gap debe tener una referencia normativa o indicar que no se ha localizado referencia concreta.\n- Prioriza datos de salud, datos personales, proveedores, accesos, cifrado, logs, continuidad, incidentes y trazabilidad.\n- La salida debe servir como evidencia para Fase 3.\n\nFormato obligatorio:\n\nResumen breve:\nExplica en 2-3 líneas el resultado general.\n\nTabla de gap analysis:\n| Área normativa | Carencia detectada | Riesgo | Criticidad | Referencia normativa | Evidencia documental | Acción correctiva |\n\nDespués de la tabla, añade:\n\nConclusión:\nIndica si el nivel de alineación parece alto, medio o bajo, siempre de forma prudente.\n\nPregunta del usuario:\n{{ $json.pregunta_usuario }}\n\nContexto documental recuperado:\n{{ $json.contexto }}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.3,
+      "position": [
+        624,
+        -528
+      ],
+      "id": "41424f54-b486-42f2-97d2-bc944b29c9d9",
+      "name": "14_IA_GAP_Normativo"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "64a58fde-8283-4f0a-a1c6-511f6dd809a8",
+              "name": "respuesta",
+              "value": "={{ $json.output[0].content[0].text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        912,
+        -528
+      ],
+      "id": "444e0a89-1be6-4573-9946-7be6195d301a",
+      "name": "15_Formatear_Respuesta_GAP"
+    },
+    {
+      "parameters": {
+        "message": "={{ $json.respuesta }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chat",
+      "typeVersion": 1.3,
+      "position": [
+        1152,
+        -528
+      ],
+      "id": "b34180fc-a045-48c8-813d-ce98760c4f65",
+      "name": "16_Enviar_Respuesta_GAP"
+    },
+    {
+      "parameters": {
+        "mode": "load",
+        "memoryKey": {
+          "__rl": true,
+          "mode": "list",
+          "value": "vector_store_key"
+        },
+        "prompt": "={{ $('01_Entrada_Chat_Usuario').first().json.chatInput }}",
+        "topK": "={{ 5 }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.3,
+      "position": [
+        64,
+        -160
+      ],
+      "id": "534de277-ef72-4095-8760-0c29a940b552",
+      "name": "17_RAG_Auditoria_Politica_Normativa"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3a460ce6-b8e2-4694-a75f-e4fd47a1aaac",
+              "name": "pregunta_usuario",
+              "value": "={{ $('01_Entrada_Chat_Usuario').first().json.chatInput }}",
+              "type": "string"
+            },
+            {
+              "id": "e112d89f-1728-44ed-915e-edc9adf27b10",
+              "name": "contexto",
+              "value": "={{ $input.all().map(item => item.json.document?.pageContent || item.json.pageContent || item.json.text || '').join('\\n\\n---\\n\\n') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        384,
+        -160
+      ],
+      "id": "2aa7c40b-21f0-4fd7-a53a-8a77ab605fb5",
+      "name": "18_Preparar_Contexto_Auditoria"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=Eres el Asistente de Ciberseguridad y Compliance de MIDTECH S.A.\n\nTu tarea es responder preguntas de auditoría documental usando únicamente el contexto recuperado desde Google Drive.\n\nDebes comprobar si la política de seguridad de MIDTECH documenta, menciona o evidencia el control, medida o procedimiento preguntado por el usuario.\n\nALCANCE:\n- Revisar documentación de seguridad.\n- Responder preguntas de auditoría sobre la política ficticia de MIDTECH.\n- Identificar si existe evidencia documental.\n- Relacionar la respuesta con ISO 27001, RGPD/GDPR, LOPDGDD o ENS cuando sea razonable.\n- Señalar carencias documentales sin afirmar incumplimiento definitivo.\n\nREGLAS OBLIGATORIAS:\n- No inventes información.\n- No afirmes cumplimiento definitivo.\n- No sustituyas una auditoría formal ni una validación legal.\n- No afirmes que has revisado sistemas reales.\n- No des por documentada una medida si no aparece en el contexto documental.\n- No inventes apartados, controles, artículos o secciones.\n- No conviertas una ausencia documental en incumplimiento legal definitivo.\n- Si algo no aparece en el contexto documental, responde exactamente:\n\"No localizado en la documentación disponible.\"\n- Mantén lenguaje claro, profesional y prudente.\n- Mantén trazabilidad entre pregunta, documento, fragmento y respuesta.\n\nREGLA SOBRE EVIDENCIA PARCIAL:\nUsa \"No localizado en la documentación disponible\" solo cuando el dato no aparezca en absoluto.\n\nSi el contexto contiene información parcial, incompleta o una medida pendiente de implantación, no respondas \"No localizado\". En ese caso indica:\n\"Evidencia parcial localizada\" o \"Cobertura parcial\", y explica el fragmento encontrado.\n\nPregunta del usuario:\n{{ $json.pregunta_usuario }}\n\nContexto documental recuperado:\n{{ $json.contexto }}\n\nINSTRUCCIONES DE RESPUESTA:\n1. Usa únicamente el contexto documental anterior.\n2. Identifica si la política de MIDTECH documenta el control o medida preguntada.\n3. Diferencia entre:\n   - Documentado claramente.\n   - Documentado parcialmente.\n   - No localizado.\n4. Si aparece una mención parcial, úsala como evidencia.\n5. Si el usuario pregunta por cumplimiento, responde en términos de evidencia documental, no de cumplimiento definitivo.\n6. Relaciona con ISO 27001, RGPD/GDPR, LOPDGDD o ENS solo si tiene sentido para la pregunta.\n7. Formula una conclusión prudente y accionable.\n\nFORMATO OBLIGATORIO DE RESPUESTA:\n\n1. Respuesta breve.\nIndica si la política documenta claramente, parcialmente o no localiza la medida preguntada.\n\n2. Qué dice la política de MIDTECH.\nResume únicamente lo que aparece en el contexto documental. Incluye un fragmento breve si está disponible.\n\n3. Evidencia documental.\n- Documento:\n- Apartado/sección:\n- Fragmento recuperado:\n\nSi no puedes localizar alguno de estos elementos, responde:\n\"No localizado en la documentación disponible.\"\n\n4. Norma o marco relacionado.\nIndica la norma o marco aplicable si procede:\n- ISO 27001\n- RGPD/GDPR\n- LOPDGDD\n- ENS\n\n5. Conclusión de auditoría.\nIndica una conclusión prudente:\n- Evidencia suficiente.\n- Evidencia parcial.\n- Evidencia no localizada.\nNo afirmes cumplimiento definitivo.\n\n6. Riesgo o carencia posible.\nExplica el riesgo si la medida está incompleta, poco detallada o no localizada.\n\n7. Recomendación.\nPropón una acción concreta para mejorar la evidencia documental o reforzar el control.\n\n8. Prioridad.\nClasifica como:\n- Alta\n- Media\n- Baja\n\nNota final:\nEsta respuesta se basa únicamente en la documentación recuperada desde Google Drive y no sustituye una auditoría formal ni una validación legal."
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.3,
+      "position": [
+        576,
+        -160
+      ],
+      "id": "d364c30b-2e04-43bd-bfbd-1f7f4cc28a4a",
+      "name": "19_IA_Respuesta_Auditoria"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "64a58fde-8283-4f0a-a1c6-511f6dd809a8",
+              "name": "respuesta",
+              "value": "={{ $json.output[0].content[0].text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        944,
+        -160
+      ],
+      "id": "8986966a-846b-4af5-a29f-12407447c2b1",
+      "name": "20_Formatear_Respuesta_Auditoria"
+    },
+    {
+      "parameters": {
+        "message": "={{ $json.respuesta }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chat",
+      "typeVersion": 1.3,
+      "position": [
+        1168,
+        -144
+      ],
+      "id": "b82bb2d8-265f-4a14-a1a9-e88d681a141a",
+      "name": "21_Enviar_Respuesta_Auditoria"
+    },
+    {
+      "parameters": {
+        "mode": "load",
+        "memoryKey": {
+          "__rl": true,
+          "mode": "list",
+          "value": "vector_store_key"
+        },
+        "prompt": "={{ $('01_Entrada_Chat_Usuario').first().json.chatInput }}",
+        "topK": "={{ 5 }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.3,
+      "position": [
+        80,
+        208
+      ],
+      "id": "511d36b8-4316-4117-baca-c6827c970e0f",
+      "name": "22_RAG_Base_Completa_Mejoras"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3a460ce6-b8e2-4694-a75f-e4fd47a1aaac",
+              "name": "pregunta_usuario",
+              "value": "={{ $('01_Entrada_Chat_Usuario').first().json.chatInput }}",
+              "type": "string"
+            },
+            {
+              "id": "e112d89f-1728-44ed-915e-edc9adf27b10",
+              "name": "contexto",
+              "value": "={{ $input.all().map(item => item.json.document?.pageContent || item.json.pageContent || item.json.text).join('\\n\\n---\\n\\n') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        400,
+        208
+      ],
+      "id": "c8450f8c-be3f-4318-a1c2-39e9a5cbf63b",
+      "name": "23_Preparar_Contexto_Mejoras"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=Eres un analista de gap normativo para MIDTECH S.A.\n\nTu función es comparar la política de seguridad de MIDTECH o la situación planteada por el usuario frente a ISO 27001, GDPR/RGPD, LOPDGDD y ENS, usando únicamente el contexto documental recibido.\n\nObjetivo:\nDetectar carencias, incumplimientos potenciales o brechas documentales.\n\nReglas:\n- No afirmes incumplimiento legal definitivo.\n- Habla de \"brecha\", \"carencia\", \"riesgo\" o \"posible incumplimiento documental\".\n- No inventes artículos ni controles.\n- Si falta información, indica: \"No localizado en la documentación disponible.\"\n- Cada gap debe tener una referencia normativa o indicar que no se ha localizado referencia concreta.\n- Prioriza datos de salud, datos personales, proveedores, accesos, cifrado, logs, continuidad, incidentes y trazabilidad.\n- La salida debe servir como evidencia para Fase 3.\n\nFormato obligatorio:\n\nResumen breve:\nExplica en 2-3 líneas el resultado general.\n\nTabla de gap analysis:\n| Área normativa | Carencia detectada | Riesgo | Criticidad | Referencia normativa | Evidencia documental | Acción correctiva |\n\nDespués de la tabla, añade:\n\nConclusión:\nIndica si el nivel de alineación parece alto, medio o bajo, siempre de forma prudente.\n\nPregunta del usuario:\n{{ $json.pregunta_usuario }}\n\nContexto documental recuperado:\n{{ $json.contexto }}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.3,
+      "position": [
+        640,
+        208
+      ],
+      "id": "3624ab84-d1a3-4c9b-b0b3-899a67eb8a1e",
+      "name": "24_IA_Propuestas_Mejora"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "64a58fde-8283-4f0a-a1c6-511f6dd809a8",
+              "name": "respuesta",
+              "value": "={{ $json.output[0].content[0].text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1024,
+        208
+      ],
+      "id": "16d0ee21-19fa-4021-8d53-e1b9de07d3db",
+      "name": "25_Formatear_Respuesta_Mejoras"
+    },
+    {
+      "parameters": {
+        "message": "={{ $json.respuesta }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chat",
+      "typeVersion": 1.3,
+      "position": [
+        1232,
+        208
+      ],
+      "id": "913133f2-0f66-4eb3-a2a3-863331ae47de",
+      "name": "26_Enviar_Respuesta_Mejoras"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1488,
+        -800
+      ],
+      "id": "322de8b4-9d39-4d03-a72a-73e65a62edf3",
+      "name": "A01_Trigger_Indexacion_Manual"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "CONFIGURAR_ID_DOCUMENTO_GOOGLE_DRIVE",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1104,
+        -640
+      ],
+      "id": "9fb9a74f-a244-461a-9be4-f0192beae0fa",
+      "name": "A02_Descargar_Documentos_Google_Drive"
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        -912,
+        -624
+      ],
+      "id": "4d6d976e-e984-4f0c-8420-2e5dcc579075",
+      "name": "A03_Extraer_Texto_PDF"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "memoryKey": {
+          "__rl": true,
+          "mode": "list",
+          "value": "vector_store_key"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.3,
+      "position": [
+        -736,
+        -784
+      ],
+      "id": "f70fd2c8-4c22-435e-b174-acd302945687",
+      "name": "A04_Indexar_Base_Documental"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -704,
+        -624
+      ],
+      "id": "61ce5fbb-4858-40ad-beff-99190eab7c0b",
+      "name": "A05_Embeddings_OpenAI_Indexacion"
+    },
+    {
+      "parameters": {
+        "mode": "load",
+        "memoryKey": {
+          "__rl": true,
+          "mode": "list",
+          "value": "vector_store_key"
+        },
+        "prompt": "¿Qué dice ISO 27001 sobre SGSI, alcance, gestión de riesgos y mejora continua?"
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.3,
+      "position": [
+        -1088,
+        -944
+      ],
+      "id": "51cb7568-630b-4e19-bb26-6073bee2c225",
+      "name": "Bloque auxiliar / prueba inicial"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "25d6407d-4225-4364-8bb8-eff390d7e89e",
+              "name": "respuesta",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1056,
+        -832
+      ],
+      "id": "ebe71a08-782b-4150-822b-417b5eec4ad8",
+      "name": "Formatear_Respuesta_Politica"
+    },
+    {
+      "parameters": {
+        "message": "={{ $json.respuesta }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chat",
+      "typeVersion": 1.3,
+      "position": [
+        1264,
+        -832
+      ],
+      "id": "db569a17-8ab4-4cf5-9739-2546d12e2db4",
+      "name": "12_Enviar_Respuesta_Politica"
+    }
+  ],
+  "connections": {
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "A02_Descargar_Documentos_Google_Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "A04_Indexar_Base_Documental",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Bloque auxiliar / prueba inicial",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Bloque auxiliar / prueba inicial",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "03_Clasificador_Intencion",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI2": {
+      "ai_embedding": [
+        [
+          {
+            "node": "09_RAG_Politica_MIDTECH",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "11_IA_Analisis_Politica",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI3": {
+      "ai_embedding": [
+        [
+          {
+            "node": "12_RAG_GAP_ISO_ENS_Politica",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI4": {
+      "ai_embedding": [
+        [
+          {
+            "node": "17_RAG_Auditoria_Politica_Normativa",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI5": {
+      "ai_embedding": [
+        [
+          {
+            "node": "22_RAG_Base_Completa_Mejoras",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "01_Entrada_Chat_Usuario": {
+      "main": [
+        [
+          {
+            "node": "02_Preparar_Pregunta_Usuario",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "02_Preparar_Pregunta_Usuario": {
+      "main": [
+        [
+          {
+            "node": "03_Clasificador_Intencion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "03_Clasificador_Intencion": {
+      "main": [
+        [
+          {
+            "node": "04_Normalizar_Categoria_y_Booleanos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "04_Normalizar_Categoria_y_Booleanos": {
+      "main": [
+        [
+          {
+            "node": "07_IF_Auditoria",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "08_IF_Mejoras",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "06_IF_GAP",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "05_IF_Politica",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "05_IF_Politica": {
+      "main": [
+        [
+          {
+            "node": "09_Preparar_Consulta_RAG_Politica",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "06_IF_GAP": {
+      "main": [
+        [
+          {
+            "node": "12_RAG_GAP_ISO_ENS_Politica",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "07_IF_Auditoria": {
+      "main": [
+        [
+          {
+            "node": "17_RAG_Auditoria_Politica_Normativa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "08_IF_Mejoras": {
+      "main": [
+        [
+          {
+            "node": "22_RAG_Base_Completa_Mejoras",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "10_Preparar_Prompt_Politica": {
+      "main": [
+        [
+          {
+            "node": "11_IA_Analisis_Politica",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "09_RAG_Politica_MIDTECH": {
+      "main": [
+        [
+          {
+            "node": "10_Preparar_Prompt_Politica",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "09_Preparar_Consulta_RAG_Politica": {
+      "main": [
+        [
+          {
+            "node": "09_RAG_Politica_MIDTECH",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "12_RAG_GAP_ISO_ENS_Politica": {
+      "main": [
+        [
+          {
+            "node": "13_Preparar_Contexto_GAP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "13_Preparar_Contexto_GAP": {
+      "main": [
+        [
+          {
+            "node": "14_IA_GAP_Normativo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "14_IA_GAP_Normativo": {
+      "main": [
+        [
+          {
+            "node": "15_Formatear_Respuesta_GAP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "15_Formatear_Respuesta_GAP": {
+      "main": [
+        [
+          {
+            "node": "16_Enviar_Respuesta_GAP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "17_RAG_Auditoria_Politica_Normativa": {
+      "main": [
+        [
+          {
+            "node": "18_Preparar_Contexto_Auditoria",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "18_Preparar_Contexto_Auditoria": {
+      "main": [
+        [
+          {
+            "node": "19_IA_Respuesta_Auditoria",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "19_IA_Respuesta_Auditoria": {
+      "main": [
+        [
+          {
+            "node": "20_Formatear_Respuesta_Auditoria",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "20_Formatear_Respuesta_Auditoria": {
+      "main": [
+        [
+          {
+            "node": "21_Enviar_Respuesta_Auditoria",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "22_RAG_Base_Completa_Mejoras": {
+      "main": [
+        [
+          {
+            "node": "23_Preparar_Contexto_Mejoras",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "23_Preparar_Contexto_Mejoras": {
+      "main": [
+        [
+          {
+            "node": "24_IA_Propuestas_Mejora",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "24_IA_Propuestas_Mejora": {
+      "main": [
+        [
+          {
+            "node": "25_Formatear_Respuesta_Mejoras",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "25_Formatear_Respuesta_Mejoras": {
+      "main": [
+        [
+          {
+            "node": "26_Enviar_Respuesta_Mejoras",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "A01_Trigger_Indexacion_Manual": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "A02_Descargar_Documentos_Google_Drive": {
+      "main": [
+        [
+          {
+            "node": "A03_Extraer_Texto_PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "A03_Extraer_Texto_PDF": {
+      "main": [
+        [
+          {
+            "node": "A04_Indexar_Base_Documental",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "A04_Indexar_Base_Documental": {
+      "main": [
+        []
+      ]
+    },
+    "A05_Embeddings_OpenAI_Indexacion": {
+      "ai_embedding": [
+        [
+          {
+            "node": "A04_Indexar_Base_Documental",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bloque auxiliar / prueba inicial": {
+      "main": [
+        []
+      ]
+    },
+    "11_IA_Analisis_Politica": {
+      "main": [
+        [
+          {
+            "node": "Formatear_Respuesta_Politica",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formatear_Respuesta_Politica": {
+      "main": [
+        [
+          {
+            "node": "12_Enviar_Respuesta_Politica",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "tags": []
+}
